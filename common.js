@@ -1,6 +1,7 @@
 var hourElm = document.querySelector(".hour-hand");
 var minElm = document.querySelector(".min-hand");
 var secondElm = document.querySelector(".second-hand");
+
 function setDate() {
   var now = new Date();
 
