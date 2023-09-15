@@ -20,4 +20,6 @@ function setDate() {
 
 setInterval(setDate, 1000);
 
+
+// call funtion
 setDate();
