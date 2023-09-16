@@ -1,25 +1,28 @@
-var hourElm = document.querySelector(".hour-hand");
-var minElm = document.querySelector(".min-hand");
-var secondElm = document.querySelector(".second-hand");
+function animateClock() {
+  // get elm
+  var secondElm = document.querySelector(".second-hand span");
+  var minuteElm = document.querySelector(".minute-hand span");
+  var hourElm = document.querySelector(".hour-hand span");
 
-function setDate() {
+  // get date
   var now = new Date();
 
   var seconds = now.getSeconds();
-  var secondsDegrees = (seconds / 60) * 360 + 90;
-  secondElm.style.transform = `rotate(${secondsDegrees}deg)`;
+  var secondsDegrees = (seconds / 60) * 360; 
 
-  var mins = now.getMinutes();
-  var minsDegrees = (mins / 60) * 360 + (seconds / 60) * 6 + 90;
-  minElm.style.transform = `rotate(${minsDegrees}deg)`;
+  var minute = now.getMinutes();
+  var minuteDegrees = (minute / 60) * 360 + (seconds / 60) * 6;
 
   var hour = now.getHours();
-  var hourDegrees = (hour / 12) * 360 + (mins / 60) * 30 + 90;
-  hourElm.style.transform = `rotate(${hourDegrees}deg)`;
+  var hourDegrees = (hour / 12) * 360 + (minute / 60) * 30;
+
+  // change style
+  secondElm.style.transform = `translateX(-50%) rotate(${secondsDegrees}deg)`;
+  minuteElm.style.transform = `translateX(-50%) rotate(${minuteDegrees}deg)`;
+  hourElm.style.transform = `translateX(-50%) rotate(${hourDegrees}deg)`;
+
+  // Gọi lại
+  setTimeout(animateClock, 100);
 }
 
-setInterval(setDate, 1000);
-
-
-// call funtion
-setDate();
+animateClock();
