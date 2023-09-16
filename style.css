@@ -1,46 +1,185 @@
-html {
-  background: #018ded url(https://unsplash.it/1500/1000?image=881&blur=5);
-  background-size: cover;
-  font-family: "helvetica neue";
-  text-align: center;
-  font-size: 10px;
-}
-
 body {
+  background-image: url(https://unsplash.it/1500/1000?image=881&blur=5);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  padding: 0;
   margin: 0;
-  font-size: 2rem;
-  display: flex;
-  flex: 1;
-  min-height: 100vh;
-  align-items: center;
 }
 
 .clock {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
   width: 30rem;
   height: 30rem;
-  border: 20px solid white;
+  border: 20px solid #080041;
   border-radius: 50%;
-  margin: 50px auto;
   position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   padding: 2rem;
-  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefef, inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 10px #4a4e7f, inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .clock-face {
   position: relative;
   width: 100%;
+  height: 90%;
+}
+
+.clock-num {
+  width: 100%;
   height: 100%;
-  transform: translateY(-3px); 
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.clock-num p {
+  margin: 0;
+  color: #080041;
+  font-weight: 900;
+  font-size: 50px;
+  position: absolute;
+}
+.clock-num p:first-child {
+  left: 50%;
+  top: 30px;
+  transform: translateX(-50%);
+}
+.clock-num p:first-child:before {
+  content: "";
+  position: absolute;
+  right: -105px;
+  top: 50px;
+  transform: rotate(40deg);
+  width: 10px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: #080041;
+}
+.clock-num p:first-child:after {
+  content: "";
+  position: absolute;
+  right: -173px;
+  top: 137px;
+  transform: rotate(65deg);
+  width: 10px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: #080041;
+}
+.clock-num p:last-child {
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.clock-num p:last-child:before {
+  content: "";
+  position: absolute;
+  right: -30px;
+  top: -89px;
+  transform: rotate(-67deg);
+  width: 10px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: #080041;
+}
+.clock-num p:last-child:after {
+  content: "";
+  position: absolute;
+  right: -110px;
+  top: -170px;
+  transform: rotate(-36deg);
+  width: 10px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: #080041;
+}
+.clock-num p:nth-child(2) {
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.clock-num p:nth-child(2):before {
+  content: "";
+  position: absolute;
+  right: 38px;
+  top: 104px;
+  transform: rotate(118deg);
+  width: 10px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: #080041;
+}
+.clock-num p:nth-child(2):after {
+  content: "";
+  position: absolute;
+  right: 112px;
+  top: 190px;
+  transform: rotate(-40deg);
+  width: 10px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: #080041;
+}
+.clock-num p:nth-child(3) {
+  left: 50%;
+  bottom: 30px;
+}
+.clock-num p:nth-child(3):before {
+  content: "";
+  position: absolute;
+  right: 140px;
+  top: -14px;
+  transform: rotate(35deg);
+  width: 10px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: #080041;
+}
+.clock-num p:nth-child(3):after {
+  content: "";
+  position: absolute;
+  right: 215px;
+  top: -107px;
+  transform: rotate(62deg);
+  width: 10px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: #080041;
 }
 
 .hand {
-  width: 50%;
-  height: 6px;
-  background: black;
+  width: 100%;
+  height: 50%;
   position: absolute;
-  top: 50%;
-  transform-origin: 100%;
-  transform: rotate(90deg);
-  transition: all 0.05s;
-  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+.hand span {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  background: #080041;
+  border-radius: 10px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(0deg);
+  transform-origin: bottom;
+  transition: all 0.01s;
+}
+
+.hour-hand span {
+  width: 15px;
+  height: 70%;
+}
+.minute-hand span {
+}
+
+.second-hand span {
+  height: 105%;
+  width: 5px;
+  bottom: 0;
+  background: #a80e0e;
 }
